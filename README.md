@@ -27,10 +27,6 @@ The game challenges players to guess a hidden 5-letter word within a limited num
 - HTML
 - CSS
 - JavaScript  
-  **or**
-- React / Vue / Angular  
-  **or**
-- Any backend (Node.js, Express, etc.)
 
 ## 📸 Screenshots
 
