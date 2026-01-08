@@ -41,7 +41,7 @@ Add screenshots or a GIF of the game here to showcase the UI.
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/wordle-clone.git
+   git clone https://github.com/doitaxcel/wordleClone/tree/master
 Navigate into the project folder:
 
 bash
