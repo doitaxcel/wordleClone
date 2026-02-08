@@ -5,25 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wordle Clone</title>
 
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- <script src="https://api.frontendexpert.io/api/fe/wordle-words"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+    <link rel="stylesheet" href="./src/output.css">
+    <!-- <link rel="stylesheet" href="main.css"> -->
+    
 </head>
-<body class="p-0 m-0 w-screen h-screen bg-gray-200 overflow-hidden">
-
-    <div class="bg-white/70 backdrop-blur-md rounded-xl shadow-2xl h-[90%] w-[60%] flex flex-col justify-start items-center m-auto mt-10 mb-7 pt-6">
-
-        <div class="flex justify-start items-center">
-            <h1 class="text-4xl font-bold">Welcome to Wordle Clone</h1>
-        </div>
-
-        <div id="board" class="grid grid-cols-5 gap-2 mt-6">
-            
-
-        </div>
+<body class="p-0 m-0 w-screen h-dvh overflow-hidden bg-black/90">
+    <!-- TODO: Make THIS FULLY RESPONSIVE ACROSS ALL GALAXIES -->
+    <div class=" backdrop-blur-md h-dvh w-full flex flex-col items-center mx-auto px-4 pt-6">
         
+        <div class="flex justify-start items-center">
+            <h1 class="font-bold text-white text-xl sm:text-2xl md:text-4xl">Wordle Clone</h1>
+        </div>
+
+        <div id="board" class="grid grid-cols-5 grow place-content-center gap-2 md:gap-3 mt-6">
+
+        </div>
+
+        <div class="keyboard flex flex-col items-center mt-auto select-none w-full mb-4">
             
+            <div class="up flex mt-2 mb-1">
+                <span class="key" data-key="Q">Q</span>
+                <span class="key" data-key="W">W</span>
+                <span class="key" data-key="E">E</span>
+                <span class="key" data-key="R">R</span>
+                <span class="key" data-key="T">T</span>
+                <span class="key" data-key="Y">Y</span>
+                <span class="key" data-key="U">U</span>
+                <span class="key" data-key="I">I</span>
+                <span class="key" data-key="O">O</span>
+                <span class="key" data-key="P">P</span>
+            </div>
+
+            <div class="mid flex mb-1">
+                <span class="key" data-key="A">A</span>
+                <span class="key" data-key="S">S</span>
+                <span class="key" data-key="D">D</span>
+                <span class="key" data-key="F">F</span>
+                <span class="key" data-key="G">G</span>
+                <span class="key" data-key="H">H</span>
+                <span class="key" data-key="J">J</span>
+                <span class="key" data-key="K">K</span>
+                <span class="key" data-key="L">L</span>
+            </div>
+
+            <div class="bot flex mb-1">
+                <span class="key" data-key="Enter">ENTER</span>
+                <span class="key" data-key="Z">Z</span>
+                <span class="key" data-key="X">X</span>
+                <span class="key" data-key="C">C</span>
+                <span class="key" data-key="V">V</span>
+                <span class="key" data-key="B">B</span>
+                <span class="key" data-key="N">N</span>
+                <span class="key" data-key="M">M</span>
+                <span class="key" data-key="Backspace">BACKSPACE</span>
+            </div>
+        </div>
 
     </div>
     <script src="board.js"></script>
+    <!-- <script src="study.js"></script> -->
 </body>
 </html> 
