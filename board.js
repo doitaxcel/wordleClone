@@ -1,5 +1,5 @@
 const wordAPI = '/words.json'
-const fallbackWords = ['APPLE', 'GRAPE', 'LEMON', 'PEACH', 'BERRY', 'PLUMB', 'ORANGE', 'MELON', 'CHERRY', 'BANANA'];
+const fallbackWords = ['APPLE', 'GRAPE', 'LEMON', 'PEACH', 'BERRY', 'PLUMB', 'ORANGE', 'MELON', 'BANANA'];
 
 // this is for the tile grid
 const board = document.getElementById('board');
