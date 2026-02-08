@@ -22,16 +22,10 @@ The game challenges players to guess a hidden 5-letter word within a limited num
 
 ## 🛠️ Built With
 
-*(Update this section based on your stack)*
-
 - HTML
-- CSS
+- CSS (<a href="https://tailwindcss.com/">tailwindcss</a>)
 - JavaScript  
 
-## 📸 Screenshots
-
-*(Optional)*  
-Add screenshots or a GIF of the game here to showcase the UI.
 
 ## 📦 Installation & Setup
 
@@ -49,13 +43,13 @@ or run your development server if using a framework.
 🧪 Future Improvements
 Difficulty levels
 
-Dark mode
+Dark mode/Light mode
 
 Statistics tracking
 
 Daily word mode
 
-Animations and sound effects
+Animations (and sound effects)
 
 📚 Inspiration
 Inspired by the original Wordle game created by Josh Wardle.
