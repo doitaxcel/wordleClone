@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+    --breakpoint-xxs: 300px;
+    --breakpoint-xs: 580px;
+}
+
+@layer utilities {
+    .h-dvh {
+        height: 100dvh;
+    }
+}
+
+@layer components{
+    .key {
+        @apply flex items-center justify-center bg-gray-600 text-white rounded-md border border-gray-600 transition-colors cursor-pointer mx-0.5 font-bold touch-manipulation 
+        /* MOBILE FIRST */
+        h-9 px-2
+        
+        /* xs (580px+) */
+        xs:h-10 xs:px-3 xs:text-sm
+
+        /* sm */
+        sm:h-12 sm:px-4 sm:text-base;
+    }
+    
+    html, body {
+        @apply w-full overscroll-none;
+    }
+
+    /* WEB ZOOM BEHAVIOR */
+    .key {
+        @apply touch-manipulation select-none;
+    }
+
+    .key[data-key="Enter"], .key[data-key="Backspace"]{
+        @apply px-4 xxs:px-5 sm:px-6 md:px-7;
+    }
+}
+
+/* EVALUATION PART  */
+.green {
+    background:	 #6ca965;
+}
+
+.yellow {
+    background: #c8b653;
+}
+
+.gray {
+    background: #787c7f;
+}
+
+/* web behavior */
+.keyboard {
+  padding-bottom: env(safe-area-inset-bottom);
+}
