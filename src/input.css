@@ -23,6 +23,16 @@
         /* sm */
         sm:h-12 sm:px-4 sm:text-base;
     }
+
+    button {
+        @apply text-center cursor-pointer;
+    }
+
+    .btn{
+        @apply border w-full rounded-lg relative
+        
+        xxs:p-1 xxs:w-10 xs:p-2 md:p-3; 
+    }
     
     html, body {
         @apply w-full overscroll-none;
