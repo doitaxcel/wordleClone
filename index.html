@@ -12,11 +12,44 @@
 </head>
 <body class="p-0 m-0 w-screen h-dvh overflow-hidden bg-black/90">
     <!-- TODO: Make THIS FULLY RESPONSIVE ACROSS ALL GALAXIES -->
-    <div class=" backdrop-blur-md h-dvh w-full flex flex-col items-center mx-auto px-4 pt-6">
+    <div class=" backdrop-blur-md h-dvh w-full flex flex-col items-center mx-auto pt-6">
         
-        <div class="flex justify-start items-center">
-            <h1 class="font-bold text-white text-xl sm:text-2xl md:text-4xl">Wordle Clone</h1>
+        <header class="flex items-center relative w-full border-b border-b-gray-600 pb-2">
+            
+            <div class="ml-3">
+                <button class="text-white font-bold rounded-lg bg-gray-600 px-3 py-2"
+                        id="retryBtn"
+                        onclick="retryWindow()">
+                    Retry
+                </button>
+            </div>
+
+            <div class="flex-1 flex justify-center text-center  ">
+                <h1 class="font-bold text-white text-xl sm:text-2xl md:text-4xl">
+                    Wordle Clone
+                </h1>
+            </div>
+        </header>
+
+        <!-- Retry Dialogue -->
+        <div id="retryDialogue" class="hidden fixed inset-0 flex items-center justify-center bg-black/40 z-50">
+
+            <div class="flex-col justify-center items-center min-h-[10%] w-[30%] text-white border-black border  bg-gray-600 rounded-xl text-center font-bold p-5 xxs:left-5 xxs:right-5" >
+
+                <h4 class="pb-3 text-lg">
+                    Start a New Game?
+                </h4>
+                <p class="pb-3 text-sm">
+                    This will restart the game and give you a new word. Your current progress will be lost
+                </p>
+
+                <div class="key flex flex-col xxs:flex-row justify-center gap-4 w-full overflow-hidden lg:gap-1">
+                    <button id="declineBtn" class="btn flex-1">Decline</button>
+                    <button id="confirmBtn" class="btn flex-1">Confirm</button>
+                </div>
+            </div>
         </div>
+        
 
         <div id="board" class="grid grid-cols-5 grow place-content-center gap-2 md:gap-3 mt-6">
 
@@ -50,7 +83,7 @@
             </div>
 
             <div class="bot flex mb-1">
-                <span class="key" data-key="Enter">ENTER</span>
+                <span class="key" data-key="Backspace">BACKSPACE</span>
                 <span class="key" data-key="Z">Z</span>
                 <span class="key" data-key="X">X</span>
                 <span class="key" data-key="C">C</span>
@@ -58,7 +91,7 @@
                 <span class="key" data-key="B">B</span>
                 <span class="key" data-key="N">N</span>
                 <span class="key" data-key="M">M</span>
-                <span class="key" data-key="Backspace">BACKSPACE</span>
+                <span class="key" data-key="Enter">ENTER</span>
             </div>
         </div>
 
