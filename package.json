@@ -2,5 +2,26 @@
   "dependencies": {
     "@tailwindcss/cli": "^4.1.18",
     "tailwindcss": "^4.1.18"
-  }
+  },
+  "name": "wordleclone",
+  "version": "1.0.0",
+  "description": "A simple **Wordle clone** built as a learning project.  \r The game challenges players to guess a hidden 5-letter word within a limited number of attempts, providing feedback after each guess.",
+  "main": "board.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doitaxcel/wordleClone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/doitaxcel/wordleClone/issues"
+  },
+  "homepage": "https://github.com/doitaxcel/wordleClone#readme"
 }
