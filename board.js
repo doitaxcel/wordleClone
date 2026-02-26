@@ -1,5 +1,22 @@
 const wordAPI = './words.json'
-const fallbackWords = ['APPLE', 'GRAPE', 'LEMON', 'PEACH', 'BERRY', 'PLUMB', 'ORANGE', 'MELON', 'BANANA'];
+const fallbackWords = ['APPLE', 'GRAPE', 'LEMON', 'PEACH', 'BERRY', 'PLUMB', 'ORANGE', 'MELON'];
+
+function retryWindow(){ 
+    const dialog = document.getElementById('retryDialogue');
+    dialog.classList.remove('hidden');
+
+    const confirmBtn = document.getElementById('confirmBtn');
+    const declineBtn = document.getElementById('declineBtn');
+
+    confirmBtn.onclick = () => {
+        window.location.reload();
+    }
+
+    declineBtn.onclick = () => {
+        dialog.classList.add('hidden');
+    }
+    
+}
 
 // this is for the tile grid
 const board = document.getElementById('board');
@@ -34,7 +51,6 @@ async function fetchWord() {
     }
 }
 fetchWord(); // function that gets a random word from the json
-// TODO : words should come from an API
 
 const ROWS = 6
 const COLS = 5
@@ -53,8 +69,6 @@ function updateActiveTile(){ // highlights the active || current Tile
     }
 }
 updateActiveTile();
-
-// TODO: Proper use of dictorinary API
 
 async function isValidWord(word){
     if (word.length !== COLS || !/^[A-Z]+$/.test(word)){
@@ -118,6 +132,8 @@ function wordChecker(word){ // used for color evaluation
     }
 }
 
+let isSubmitting = false;
+
 async function inputChecker(key){
     if (currentRow >= ROWS) return;
 
@@ -140,10 +156,14 @@ async function inputChecker(key){
     else if (key === "Enter"){
         if (currentCol === COLS){
             // const guess = Array.from({ length: COLS }, (_, i) => getTile(currentRow, i).textContent).join('');
+            if (isSubmitting) return; // prevents spam
+
             let guess = "";
             for (let i = 0; i < COLS; i++){
                 guess += getTile(currentRow, i).textContent || '';
             }
+
+            isSubmitting = true // locks spam
 
             if (await isValidWord(guess)){
                 wordChecker(guess)
@@ -152,19 +172,18 @@ async function inputChecker(key){
                     currentCol = 0;
                     updateActiveTile()
                 }
-                // alert(`${guess} is valid`)
             }
             else {
                 alert(`${guess} is not valid word!`)
-                // clears the tiles in that row if the guess is not a valid word
-                // TODO: else: Word is not valid, screen will shake and the tiles in the current row will turn to red?
+                // TODO: else: Word is not valid, shake animation, border will be red line
             }
+
+            isSubmitting = false; // unlocks
             
         }
         else {
-            alert("Word most consist of 5 letters!")
+            alert("Word must consist of 5 letters!")
         }
-        // TODO: Proper Handling of tiles after "Enter"
     }
 }
 
