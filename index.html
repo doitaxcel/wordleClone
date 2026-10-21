@@ -2,62 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Wordle Clone</title>
-
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
     <link rel="stylesheet" href="./src/output.css">
-    <!-- <link rel="stylesheet" href="main.css"> -->
-    
 </head>
-<body class="p-0 m-0 w-screen h-dvh overflow-hidden bg-black/90">
-    <!-- TODO: Make THIS FULLY RESPONSIVE ACROSS ALL GALAXIES -->
-    <div class=" backdrop-blur-md h-dvh w-full flex flex-col items-center mx-auto pt-6">
+<body class="p-0 m-0 w-full h-dvh overflow-hidden bg-[#121213] text-white">
+    <div class="h-dvh w-full max-w-lg mx-auto flex flex-col justify-between items-center px-2 sm:px-4 py-2 sm:py-3">
         
-        <header class="flex items-center relative w-full border-b border-b-gray-600 pb-2">
-            
-            <div class="ml-3">
-                <button class="text-white font-bold rounded-lg bg-gray-600 px-3 py-2"
-                        id="retryBtn"
-                        onclick="retryWindow()">
-                    Retry
-                </button>
-            </div>
+        <!-- Header -->
+        <header class="flex items-center justify-between w-full border-b border-neutral-700 pb-2 sm:pb-3 px-1">
+            <button class="text-xs sm:text-sm font-semibold rounded-md bg-neutral-700 hover:bg-neutral-600 active:scale-95 text-neutral-200 px-3 py-1.5 transition-all"
+                    id="retryBtn"
+                    onclick="retryWindow()">
+                New Game
+            </button>
 
-            <div class="flex-1 flex justify-center text-center  ">
-                <h1 class="font-bold text-white text-xl sm:text-2xl md:text-4xl">
-                    Wordle Clone
-                </h1>
-            </div>
+            <h1 class="font-extrabold text-lg sm:text-2xl md:text-3xl tracking-wider text-center uppercase">
+                Wordle
+            </h1>
+
+            <div class="w-16"></div> <!-- Balance spacing -->
         </header>
 
-        <!-- Retry Dialogue -->
-        <div id="retryDialogue" class="hidden fixed inset-0 flex items-center justify-center bg-black/40 z-50">
-
-            <div class="flex-col justify-center items-center min-h-[10%] w-[30%] text-white border-black border  bg-gray-600 rounded-xl text-center font-bold p-5 xxs:left-5 xxs:right-5" >
-
-                <h4 class="pb-3 text-lg">
+        <!-- Retry Dialog Modal -->
+        <div id="retryDialogue" class="hidden fixed inset-0 flex items-center justify-center bg-black/70 backdrop-blur-xs z-50 p-4">
+            <div class="flex flex-col justify-center items-center w-full max-w-sm bg-neutral-800 border border-neutral-600 rounded-2xl text-center shadow-2xl p-5 sm:p-6">
+                <h4 class="pb-2 text-lg sm:text-xl font-bold text-white">
                     Start a New Game?
                 </h4>
-                <p class="pb-3 text-sm">
-                    This will restart the game and give you a new word. Your current progress will be lost
+                <p class="pb-5 text-xs sm:text-sm text-neutral-300 font-normal leading-relaxed">
+                    This will restart the game and pick a new 5-letter word. Your current guess progress will be reset.
                 </p>
 
-                <div class="key flex flex-col xxs:flex-row justify-center gap-4 w-full overflow-hidden lg:gap-1">
-                    <button id="declineBtn" class="btn flex-1">Decline</button>
-                    <button id="confirmBtn" class="btn flex-1">Confirm</button>
+                <div class="flex flex-row justify-center gap-3 w-full">
+                    <button id="declineBtn" class="btn flex-1 bg-neutral-700 border-neutral-500 hover:bg-neutral-600">Cancel</button>
+                    <button id="confirmBtn" class="btn flex-1 bg-emerald-700 border-emerald-500 hover:bg-emerald-600">Restart</button>
                 </div>
             </div>
         </div>
-        
 
-        <div id="board" class="grid grid-cols-5 grow place-content-center gap-2 md:gap-3 mt-6">
+        <!-- Board Wrapper: Fits nicely between header and keyboard -->
+        <main class="flex-1 w-full flex items-center justify-center min-h-0 py-2 sm:py-3">
+            <div id="board-container" class="w-full flex items-center justify-center h-full">
+                <div id="board" class="grid grid-cols-5 gap-1.5 sm:gap-2 w-full max-w-[330px] aspect-[5/6] max-h-full">
+                    <!-- 30 tiles dynamically generated in board.js -->
+                </div>
+            </div>
+        </main>
 
-        </div>
-
-        <div class="keyboard flex flex-col items-center mt-auto select-none w-full mb-4">
+        <!-- Virtual Keyboard -->
+        <div class="keyboard flex flex-col items-center select-none w-full max-w-lg mt-auto">
             
-            <div class="up flex mt-2 mb-1">
+            <div class="up flex w-full justify-center mb-1.5">
                 <span class="key" data-key="Q">Q</span>
                 <span class="key" data-key="W">W</span>
                 <span class="key" data-key="E">E</span>
@@ -70,7 +66,7 @@
                 <span class="key" data-key="P">P</span>
             </div>
 
-            <div class="mid flex mb-1">
+            <div class="mid flex w-full justify-center mb-1.5 px-3">
                 <span class="key" data-key="A">A</span>
                 <span class="key" data-key="S">S</span>
                 <span class="key" data-key="D">D</span>
@@ -82,8 +78,8 @@
                 <span class="key" data-key="L">L</span>
             </div>
 
-            <div class="bot flex mb-1">
-                <span class="key" data-key="Backspace">BACKSPACE</span>
+            <div class="bot flex w-full justify-center mb-1">
+                <span class="key" data-key="Enter">ENTER</span>
                 <span class="key" data-key="Z">Z</span>
                 <span class="key" data-key="X">X</span>
                 <span class="key" data-key="C">C</span>
@@ -91,12 +87,11 @@
                 <span class="key" data-key="B">B</span>
                 <span class="key" data-key="N">N</span>
                 <span class="key" data-key="M">M</span>
-                <span class="key" data-key="Enter">ENTER</span>
+                <span class="key" data-key="Backspace">⌫</span>
             </div>
         </div>
 
     </div>
     <script src="board.js"></script>
-    <!-- <script src="study.js"></script> -->
 </body>
 </html> 
