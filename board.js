@@ -30,18 +30,18 @@ for (let i = 0; i < 30; i++) {
 }
 const tiles = document.querySelectorAll(".tile");
 
+const ROWS = 6;
+const COLS = 5;
+let currentRow = 0;
+let currentCol = 0;
+let targetWord = ""; // Storage of Fetched Word
+
 function pickRandomWord() {
   targetWord =
     validWordList[Math.floor(Math.random() * validWordList.length)].toUpperCase();
   console.log("Target Word:", targetWord);
 }
 pickRandomWord();
-
-const ROWS = 6;
-const COLS = 5;
-let currentRow = 0;
-let currentCol = 0;
-let targetWord = ""; // Storage of Fetched Word
 
 function getTile(row, col) {
   return tiles[row * COLS + col];
